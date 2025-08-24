@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jai Ganesh Decor - Premier Interior & Exterior Solutions</title>
+    
+    <meta name="description" content="Jai Ganesh Decor in Hisar offers a wide range of premium interior and exterior products including PVC panels, WPC louvers, artificial grass, and more. Factory outlet prices for wholesale and retail.">
+    <meta name="keywords" content="Jai Ganesh Decor, Hisar, interior design, exterior products, PVC panels, WPC louvers, artificial grass, wallpaper">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* Table of Contents
+        -----------------------------------
+        1. Global Styles & Variables
+        2. Typography
+        3. Navigation Bar (Polished)
+        4. Hero Section
+        5. Generic Section Styling
+        6. Specific Sections
+        7. Footer
+        8. Animations & Utility Classes
+        9. Media Queries for Responsiveness
+        ----------------------------------- */
+
+        /* 1. Global Styles & Variables */
+        :root {
+            --primary-color: #2C3A47;
+            --secondary-color: #B8860B;
+            --background-color: #F8F6F2;
+            --text-color: #4A4A4A;
+            --white-color: #FFFFFF;
+            --light-gray: #EAEAEA;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Lato', sans-serif; color: var(--text-color); background-color: var(--white-color); line-height: 1.7; }
+
+        /* 2. Typography */
+        h1, h2, h3, h4, h5, h6, .navbar-brand { font-family: 'Playfair Display', serif; color: var(--primary-color); }
+        h1 { font-size: clamp(2.5rem, 6vw, 5rem); }
+        h2 { font-size: clamp(2rem, 5vw, 3rem); }
+        .lead { font-size: clamp(1rem, 2.5vw, 1.25rem); }
+
+        /* 3. Navigation Bar (Polished) */
+        .navbar { 
+            /* FIX: Added smoother transition */
+            transition: padding 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease; 
+            padding: 1rem 0; 
+        }
+        .navbar.scrolled { 
+            background-color: rgba(255, 255, 255, 0.98); 
+            backdrop-filter: blur(5px); 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* FIX: More subtle shadow */
+            padding: 0.5rem 0; 
+        }
+        .navbar-brand { font-size: 1.8rem; }
+        .nav-link { color: var(--primary-color) !important; font-weight: 700; margin: 0 0.75rem; position: relative; text-transform: uppercase; font-size: 0.85rem; }
+        .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background-color: var(--secondary-color); transition: width 0.3s ease; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+        /* 4. Hero Section */
+        .hero { position: relative; height: 100vh; color: var(--white-color); display: flex; align-items: center; overflow: hidden; }
+        .hero-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center; background-size: cover; animation: kenburns 20s ease-out infinite; }
+        .hero h1 { color: var(--white-color); text-shadow: 2px 2px 8px rgba(0,0,0,0.7); }
+        .hero .lead { text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+        .hero .typed-text { color: var(--secondary-color); border-right: 2px solid var(--secondary-color); padding-right: 5px; animation: blink 0.7s infinite; }
+
+        /* 5. Generic Section Styling */
+        section { padding: 80px 0; overflow-x: hidden; }
+        .section-title h2 { margin-bottom: 1rem; }
+        .section-title .lead { max-width: 700px; margin: 0 auto 3rem auto; }
+
+        /* 6. Specific Sections */
+        #process { background-color: var(--background-color); }
+        .process-icon { width: 80px; height: 80px; border-radius: 50%; background-color: var(--primary-color); color: var(--white-color); display: inline-flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1rem; transition: all 0.3s ease; }
+        .process-step:hover .process-icon { background-color: var(--secondary-color); transform: scale(1.1) rotate(5deg); }
+        
+        /* FIX: Product filter buttons are now centered and scrollable */
+        .filter-buttons-wrapper { display: flex; justify-content: center; margin-bottom: 3rem; }
+        .filter-buttons { display: flex; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 10px; }
+        .filter-buttons::-webkit-scrollbar { display: none; }
+        .filter-buttons .btn { flex-shrink: 0; border-radius: 50px; margin: 0 5px; transition: all 0.3s ease; }
+        .filter-buttons .btn.active, .filter-buttons .btn:hover { background-color: var(--primary-color); color: var(--white-color); border-color: var(--primary-color); }
+        
+        .product-card { position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.07); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.12); }
+        .product-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform 0.4s ease; }
+        .product-card:hover img { transform: scale(1.1); }
+        .product-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(44, 58, 71, 0.85); color: var(--white-color); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; opacity: 0; transition: opacity 0.4s ease; }
+        .product-card:hover .product-overlay { opacity: 1; }
+        .product-overlay-content { transform: translateY(20px); opacity: 0; transition: transform 0.4s ease, opacity 0.4s ease; transition-delay: 0.1s; }
+        .product-card:hover .product-overlay-content { transform: translateY(0); opacity: 1; }
+        .product-overlay h5 { font-family: 'Playfair Display', serif; color: var(--white-color); margin-bottom: 10px; }
+        .product-overlay .icon { font-size: 1.5rem; width: 40px; height: 40px; line-height: 40px; border-radius: 50%; background-color: var(--secondary-color); }
+        
+        #cta { background: linear-gradient(rgba(44, 58, 71, 0.9), rgba(44, 58, 71, 0.9)), url('https://images.pexels.com/photos/2089698/pexels-photo-2089698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center/cover; background-attachment: fixed; color: var(--white-color); }
+        #cta h2, #cta p { color: var(--white-color); }
+        .btn-cta { background: linear-gradient(45deg, var(--secondary-color), #daa520); background-size: 200% 200%; animation: gradient-animation 4s ease infinite; color: var(--white-color); padding: 14px 32px; font-weight: 700; border-radius: 50px; text-transform: uppercase; transition: all 0.3s ease; border: none; }
+        .btn-cta:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        
+        .contact-info-box i { width: 50px; height: 50px; line-height: 50px; text-align: center; border-radius: 50%; background-color: var(--secondary-color); color: var(--white-color); font-size: 1.5rem; }
+        .form-control { border: 2px solid var(--light-gray); background-color: var(--white-color); border-radius: 8px; }
+        .form-control:focus { border-color: var(--secondary-color); background-color: var(--white-color); box-shadow: 0 0 0 0.25rem rgba(184, 134, 11, 0.25); }
+
+        /* 7. Footer */
+        .footer { background-color: var(--primary-color); color: rgba(255,255,255,0.7); }
+        .footer h5 { color: var(--white-color); }
+        .footer a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s ease; }
+        .footer a:hover { color: var(--white-color); }
+        .footer .bottom-bar { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 20px; }
+
+        /* 8. Animations & Utility Classes */
+        @keyframes kenburns { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
+        @keyframes blink { 50% { border-color: transparent } }
+        @keyframes gradient-animation { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .fade-in { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* 9. Media Queries for Responsiveness */
+        @media (max-width: 992px) {
+            .navbar-brand { font-size: 1.6rem; }
+            .process-step { margin-bottom: 2rem; }
+        }
+        
+        @media (max-width: 768px) {
+            section { padding: 60px 0; }
+            .navbar-brand { font-size: 1.4rem; }
+            .hero { text-align: center; }
+            .hero .container { padding: 0 2rem; }
+            #contact .row { flex-direction: column-reverse; }
+            .contact-info-box { flex-direction: row; text-align: left; }
+            .contact-info-box i { margin-right: 1rem !important; margin-bottom: 0; }
+            .footer { text-align: center; }
+            .footer .row > div { margin-bottom: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top bg-white" aria-label="Main navigation">
+            <div class="container">
+                <a class="navbar-brand" href="#"><i class="fas fa-home me-2 text-secondary"></i>Jai Ganesh Decor</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-background"></div>
+            <div class="container" style="z-index: 1;">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 text-center">
+                        <h1>We Create <span class="typed-text"></span></h1>
+                        <p class="lead mt-3">Bringing your thoughts to life with elegant and durable interior & exterior solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process">
+            <div class="container">
+                <div class="section-title text-center fade-in">
+                    <h2>Our Simple 4-Step Process</h2>
+                    <p class="lead">We make transforming your space easy and hassle-free from start to finish.</p>
+                </div>
+                <div class="row text-center g-4">
+                    <div class="col-lg-3 col-md-6 fade-in" style="transition-delay: 0.1s;"><div class="process-step"><div class="process-icon"><i class="fas fa-comments"></i></div><h3>1. Consultation</h3><p>We start by understanding your vision, needs, and budget.</p></div></div>
+                    <div class="col-lg-3 col-md-6 fade-in" style="transition-delay: 0.2s;"><div class="process-step"><div class="process-icon"><i class="fas fa-palette"></i></div><h3>2. Design & Selection</h3><p>We help you choose the perfect products, materials, and designs.</p></div></div>
+                    <div class="col-lg-3 col-md-6 fade-in" style="transition-delay: 0.3s;"><div class="process-step"><div class="process-icon"><i class="fas fa-tools"></i></div><h3>3. Installation</h3><p>Our expert team ensures a flawless and efficient installation.</p></div></div>
+                    <div class="col-lg-3 col-md-6 fade-in" style="transition-delay: 0.4s;"><div class="process-step"><div class="process-icon"><i class="fas fa-check-circle"></i></div><h3>4. Completion</h3><p>We finalize the project, ensuring your complete satisfaction.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="bg-light">
+            <div class="container">
+                <div class="section-title text-center fade-in">
+                    <h2>Our Curated Products</h2>
+                    <p class="lead">Explore our diverse range of high-quality products. Click to filter by category.</p>
+                </div>
+                <div class="filter-buttons-wrapper fade-in">
+                    <div class="filter-buttons">
+                        <button class="btn active" data-filter="all" aria-pressed="true">All</button>
+                        <button class="btn" data-filter="panels" aria-pressed="false">Wall & Ceiling Panels</button>
+                        <button class="btn" data-filter="greenery" aria-pressed="false">Greenery</button>
+                        <button class="btn" data-filter="tiles" aria-pressed="false">Tiles & Decor</button>
+                    </div>
+                </div>
+                <div class="row g-4 gallery">
+                    <div class="col-lg-4 col-md-6 gallery-item fade-in" data-category="panels"><div class="product-card"><img loading="lazy" src="https://images.pexels.com/photos/7018391/pexels-photo-7018391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="PVC Ceiling Panels"><div class="product-overlay"><div class="product-overlay-content"><div class="icon mb-3"><i class="fas fa-plus"></i></div><h5>PVC Ceiling Panels</h5></div></div></div></div>
+                    <div class="col-lg-4 col-md-6 gallery-item fade-in" data-category="greenery"><div class="product-card"><img loading="lazy" src="https://images.pexels.com/photos/1005058/pexels-photo-1005058.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Artificial Grass"><div class="product-overlay"><div class="product-overlay-content"><div class="icon mb-3"><i class="fas fa-plus"></i></div><h5>Artificial Grass</h5></div></div></div></div>
+                    <div class="col-lg-4 col-md-6 gallery-item fade-in" data-category="panels"><div class="product-card"><img loading="lazy" src="https://images.pexels.com/photos/5825574/pexels-photo-5825574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="WPC Louver Panels"><div class="product-overlay"><div class="product-overlay-content"><div class="icon mb-3"><i class="fas fa-plus"></i></div><h5>WPC Louver Panels</h5></div></div></div></div>
+                    <div class="col-lg-4 col-md-6 gallery-item fade-in" data-category="greenery"><div class="product-card"><img loading="lazy" src="https://images.pexels.com/photos/2249962/pexels-photo-2249962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Vertical Gardens"><div class="product-overlay"><div class="product-overlay-content"><div class="icon mb-3"><i class="fas fa-plus"></i></div><h5>Vertical Gardens</h5></div></div></div></div>
+                    <div class="col-lg-4 col-md-6 gallery-item fade-in" data-category="tiles"><div class="product-card"><img loading="lazy" src="https://images.pexels.com/photos/13444379/pexels-photo-13444379.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Designer Wallpaper"><div class="product-overlay"><div class="product-overlay-content"><div class="icon mb-3"><i class="fas fa-plus"></i></div><h5>Designer Wallpaper</h5></div></div></div></div>
+                    <div class="col-lg-4 col-md-6 gallery-item fade-in" data-category="tiles"><div class="product-card"><img loading="lazy" src="https://images.pexels.com/photos/279618/pexels-photo-279618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Gypsum & PVC Tiles"><div class="product-overlay"><div class="product-overlay-content"><div class="icon mb-3"><i class="fas fa-plus"></i></div><h5>Gypsum & PVC Tiles</h5></div></div></div></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="cta" class="text-center">
+            <div class="container fade-in">
+                <h2 class="mb-3">Ready to Start Your Project?</h2>
+                <p class="lead mb-4">Let's discuss how we can bring your vision to life. Contact us today for a free, no-obligation quote.</p>
+                <a href="#contact" class="btn btn-cta">Get a Free Quote</a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="section-title text-center fade-in">
+                    <h2>Get In Touch</h2>
+                    <p class="lead">We would love to hear from you. Send us a message or visit us at our shop.</p>
+                </div>
+                <div class="row g-5">
+                    <div class="col-lg-6 fade-in">
+                        <div class="d-flex align-items-start contact-info-box mb-4"><i class="fas fa-map-marker-alt flex-shrink-0 me-3"></i><div><h4>Our Address</h4><p>Shop No. 12, Nirankari Bhawan Road, Dabra Chowk, Hisar-125001</p></div></div>
+                        <div class="d-flex align-items-start contact-info-box mb-4"><i class="fas fa-phone flex-shrink-0 me-3"></i><div><h4>Call Us</h4><p>Hitesh Baweja: <a href="tel:9466637677">9466637677</a></p></div></div>
+                        <div class="ratio ratio-16x9 rounded overflow-hidden"><iframe loading="lazy" src="http://googleusercontent.com/maps.google.com/7" title="Location of Jai Ganesh Decor" style="border:0;" allowfullscreen=""></iframe></div>
+                    </div>
+                    <div class="col-lg-6 fade-in" style="transition-delay: 0.2s;">
+                        <form id="contact-form" class="needs-validation" novalidate>
+                            <div class="mb-3"><input type="text" class="form-control p-3" placeholder="Your Name" required> <div class="invalid-feedback">Please enter your name.</div></div>
+                            <div class="mb-3"><input type="email" class="form-control p-3" placeholder="Your Email" required> <div class="invalid-feedback">Please enter a valid email address.</div></div>
+                            <div class="mb-3"><input type="text" class="form-control p-3" placeholder="Subject"></div>
+                            <div class="mb-3"><textarea class="form-control p-3" rows="5" placeholder="Your Message" required></textarea> <div class="invalid-feedback">Please enter your message.</div></div>
+                            <button type="submit" class="btn btn-cta">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer pt-5">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-12"><h5>About Us</h5><p>Jai Ganesh Decor is a leading factory outlet in Hisar for premier interior and exterior products. We are committed to quality, affordability, and customer satisfaction.</p></div>
+                <div class="col-lg-3 col-md-4"><h5>Quick Links</h5><ul class="list-unstyled"><li><a href="#process">Process</a></li><li><a href="#products">Products</a></li><li><a href="#contact">Contact</a></li></ul></div>
+                <div class="col-lg-2 col-md-4"><h5>Follow Us</h5><a href="#" class="fs-4 me-3" aria-label="Facebook"><i class="fab fa-facebook"></i></a><a href="#" class="fs-4 me-3" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" class="fs-4" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
+                <div class="col-lg-3 col-md-4"><h5>Contact</h5><ul class="list-unstyled"><li><a href="tel:9466637677"><i class="fas fa-phone me-2"></i>9466637677</a></li><li><i class="fas fa-map-marker-alt me-2"></i>Dabra Chowk, Hisar</li></ul></div>
+            </div>
+            <div class="text-center bottom-bar"><p>&copy; 2025 Jai Ganesh Decor. All Rights Reserved.</p></div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            'use strict';
+
+            // --- Element Selectors ---
+            const navbar = document.querySelector('.navbar');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+            const typedTextSpan = document.querySelector(".typed-text");
+            const filterContainer = document.querySelector('.filter-buttons');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const contactForm = document.getElementById('contact-form');
+            const navbarCollapse = document.getElementById('navbarNav');
+
+            // --- Scroll-based Functions ---
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach(el => scrollObserver.observe(el));
+
+            function onScroll() {
+                navbar.classList.toggle('scrolled', window.scrollY > 50);
+                let currentSectionId = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.pageYOffset >= sectionTop - 150) { currentSectionId = section.getAttribute('id'); }
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSectionId}`) { link.classList.add('active'); }
+                });
+            }
+            window.addEventListener('scroll', onScroll);
+            onScroll();
+
+            // --- Typing Animation ---
+            if (typedTextSpan) {
+                const textArray = ["Exquisite Interiors", "Stunning Exteriors", "Your Dream Space"];
+                const typingDelay = 100, erasingDelay = 50, newTextDelay = 2000;
+                let textArrayIndex = 0, charIndex = 0;
+                function type() { if (charIndex < textArray[textArrayIndex].length) { typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex++); setTimeout(type, typingDelay); } else { setTimeout(erase, newTextDelay); } }
+                function erase() { if (charIndex > 0) { typedTextSpan.textContent = textArray[textArrayIndex].substring(0, --charIndex); setTimeout(erase, erasingDelay); } else { textArrayIndex = (textArrayIndex + 1) % textArray.length; setTimeout(type, typingDelay + 500); } }
+                setTimeout(type, newTextDelay);
+            }
+            
+            // --- Product Gallery Filter ---
+            if (filterContainer) {
+                filterContainer.addEventListener('click', (e) => {
+                    const target = e.target;
+                    if (!target.matches('button.btn')) return;
+
+                    filterContainer.querySelector('.active').classList.remove('active');
+                    target.classList.add('active');
+                    const filter = target.dataset.filter;
+                    
+                    galleryItems.forEach(item => {
+                        const shouldShow = filter === 'all' || item.dataset.category === filter;
+                        item.style.display = shouldShow ? 'block' : 'none';
+                    });
+                });
+            }
+
+            // --- Contact Form Validation ---
+            if (contactForm) {
+                contactForm.addEventListener('submit', event => {
+                    if (!contactForm.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    contactForm.classList.add('was-validated');
+                }, false);
+            }
+
+            // --- FIX: Auto-hide mobile navbar on link click ---
+            if (navbarCollapse) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navbarCollapse.classList.contains('show')) {
+                            bsCollapse.hide();
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
