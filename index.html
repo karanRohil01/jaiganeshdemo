@@ -21,7 +21,7 @@
         -----------------------------------
         1. Global Styles & Variables
         2. Typography
-        3. Navigation Bar (Polished)
+        3. Navigation Bar
         4. Hero Section
         5. Generic Section Styling
         6. Specific Sections
@@ -48,18 +48,9 @@
         h2 { font-size: clamp(2rem, 5vw, 3rem); }
         .lead { font-size: clamp(1rem, 2.5vw, 1.25rem); }
 
-        /* 3. Navigation Bar (Polished) */
-        .navbar { 
-            /* FIX: Added smoother transition */
-            transition: padding 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease; 
-            padding: 1rem 0; 
-        }
-        .navbar.scrolled { 
-            background-color: rgba(255, 255, 255, 0.98); 
-            backdrop-filter: blur(5px); 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* FIX: More subtle shadow */
-            padding: 0.5rem 0; 
-        }
+        /* 3. Navigation Bar */
+        .navbar { transition: all 0.4s ease; padding: 1rem 0; }
+        .navbar.scrolled { background-color: rgba(255, 255, 255, 0.98); backdrop-filter: blur(5px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); padding: 0.5rem 0; }
         .navbar-brand { font-size: 1.8rem; }
         .nav-link { color: var(--primary-color) !important; font-weight: 700; margin: 0 0.75rem; position: relative; text-transform: uppercase; font-size: 0.85rem; }
         .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background-color: var(--secondary-color); transition: width 0.3s ease; }
@@ -82,7 +73,6 @@
         .process-icon { width: 80px; height: 80px; border-radius: 50%; background-color: var(--primary-color); color: var(--white-color); display: inline-flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1rem; transition: all 0.3s ease; }
         .process-step:hover .process-icon { background-color: var(--secondary-color); transform: scale(1.1) rotate(5deg); }
         
-        /* FIX: Product filter buttons are now centered and scrollable */
         .filter-buttons-wrapper { display: flex; justify-content: center; margin-bottom: 3rem; }
         .filter-buttons { display: flex; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 10px; }
         .filter-buttons::-webkit-scrollbar { display: none; }
@@ -134,6 +124,7 @@
             .navbar-brand { font-size: 1.4rem; }
             .hero { text-align: center; }
             .hero .container { padding: 0 2rem; }
+            .filter-buttons { justify-content: flex-start; }
             #contact .row { flex-direction: column-reverse; }
             .contact-info-box { flex-direction: row; text-align: left; }
             .contact-info-box i { margin-right: 1rem !important; margin-bottom: 0; }
@@ -234,7 +225,9 @@
                     <div class="col-lg-6 fade-in">
                         <div class="d-flex align-items-start contact-info-box mb-4"><i class="fas fa-map-marker-alt flex-shrink-0 me-3"></i><div><h4>Our Address</h4><p>Shop No. 12, Nirankari Bhawan Road, Dabra Chowk, Hisar-125001</p></div></div>
                         <div class="d-flex align-items-start contact-info-box mb-4"><i class="fas fa-phone flex-shrink-0 me-3"></i><div><h4>Call Us</h4><p>Hitesh Baweja: <a href="tel:9466637677">9466637677</a></p></div></div>
-                        <div class="ratio ratio-16x9 rounded overflow-hidden"><iframe loading="lazy" src="http://googleusercontent.com/maps.google.com/7" title="Location of Jai Ganesh Decor" style="border:0;" allowfullscreen=""></iframe></div>
+                        <div class="ratio ratio-16x9 rounded overflow-hidden">
+                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.623415053164!2d77.23703941508139!3d28.58105948243851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2e520311499%3A0x16f392264562084c!2sKhan%20Market!5e0!3m2!1sen!2sin!4v1663242042715!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
                     </div>
                     <div class="col-lg-6 fade-in" style="transition-delay: 0.2s;">
                         <form id="contact-form" class="needs-validation" novalidate>
@@ -339,7 +332,7 @@
                 }, false);
             }
 
-            // --- FIX: Auto-hide mobile navbar on link click ---
+            // --- Auto-hide mobile navbar on link click ---
             if (navbarCollapse) {
                 const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
                 navLinks.forEach(link => {
